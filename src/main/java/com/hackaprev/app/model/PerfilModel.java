@@ -1,9 +1,10 @@
-package com.hackaprev.app.dto;
+package com.hackaprev.app.model;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class PerfilModel {
-
 
     @Id
     private String id;

@@ -1,4 +1,4 @@
-package com.hackaprev.app.model;
+package com.hackaprev.app.dto;
 
 public class Perfil {
 
