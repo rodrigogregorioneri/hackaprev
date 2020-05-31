@@ -1,6 +1,12 @@
 package com.hackaprev.app.dto;
 
-public class Perfil {
+import org.springframework.data.annotation.Id;
+
+public class PerfilModel {
+
+
+    @Id
+    private String id;
 
     private String nome;
 

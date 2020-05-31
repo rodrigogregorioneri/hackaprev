@@ -1,4 +1,4 @@
-package com.hackaprev.app.dto;
+package com.hackaprev.app.model;
 
 public class Plano {
 

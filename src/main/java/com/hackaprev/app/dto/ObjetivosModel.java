@@ -1,4 +1,4 @@
 package com.hackaprev.app.dto;
 
-public class Objetivos {
+public class ObjetivosModel {
 }
