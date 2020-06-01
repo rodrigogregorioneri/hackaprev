@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/v1/profissionais")
+@RequestMapping("/v1/perfil")
 public class PerfilController {
 
     @Autowired
@@ -26,7 +26,7 @@ public class PerfilController {
         return perfilBusiness.listPerfil();
     }
 
-    @GetMapping("/findProfessional/{id}")
+    @GetMapping("/findPerfil/{id}")
     public PerfilModel findByPerfil(@PathVariable(name = "id", required = true) String id){
         return perfilBusiness.findPerfil(id);
     }
