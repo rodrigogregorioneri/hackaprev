@@ -25,7 +25,10 @@ public class PerfilBusiness {
         return perfilRepository.findById(id).get();
     }
 
-
+    public int getParcelas(String id, int valorApagar){
+        int valorSonho = findPerfil(id).getValorSonho();
+        return valorSonho / valorApagar;
+    }
 
 
 }

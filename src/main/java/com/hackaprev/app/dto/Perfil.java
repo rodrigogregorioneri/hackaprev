@@ -10,8 +10,10 @@ public class Perfil {
 
     private String tipoSonho;
 
-    private String valorSonho;
+    private int valorSonho;
 
     private String objetivoEmAnos;
+
+    private int parcelas;
 
 }
