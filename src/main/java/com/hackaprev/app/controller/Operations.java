@@ -14,8 +14,11 @@ public class Operations {
     @Autowired
     private PerfilBusiness perfilBusiness;
 
+
+
     @GetMapping("/getParcelas/{id}/{valorApagar}")
     public int getParcelas(@PathVariable(name = "id", required = true) String id,@PathVariable(name = "valorApagar", required = true) int valorApagar){
+
         return perfilBusiness.getParcelas(id,valorApagar);
     }
 }

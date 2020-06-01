@@ -1,6 +1,8 @@
 package com.hackaprev.app.controller;
 
+import com.hackaprev.app.business.PerfilBusiness;
 import com.hackaprev.app.business.PlanoBusiness;
+import com.hackaprev.app.model.PerfilModel;
 import com.hackaprev.app.model.PlanoModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +17,21 @@ public class PlanoController {
     @Autowired
     private PlanoBusiness planoBusiness;
 
+    @Autowired
+    private PerfilBusiness perfilBusiness;
+
     @PostMapping
     public PlanoModel createPlano(@RequestBody PlanoModel plano){
+        PerfilModel perfil = perfilBusiness.findPerfil(plano.getIdPerfil());
+        int parcela  = perfilBusiness.getParcelas(plano.getIdPerfil(), plano.getValorDaParcela());
+        int valorParcela = (perfil.getValorSonho() / parcela) + 50;
+        plano.setCashBack(0);
+        plano.setParcelas(parcela);
+        plano.setProgressoPlano("Faltam 100 %");
+        plano.setStatus("PENDENTE");
+        plano.setTempoRestante("Falta "+parcela+" meses");
+        plano.setValorDaParcela(valorParcela);
+        plano.setValorGuardado(0);
         return planoBusiness.createPlano(plano);
     }
 
@@ -29,6 +44,8 @@ public class PlanoController {
     public PlanoModel findByPlano(@PathVariable(name = "id", required = true) String id){
         return planoBusiness.findPlano(id);
     }
+
+
 
 
 }
